@@ -6,9 +6,9 @@
 * main - Start of the program
 *
 * Description: This programme prints a random number
-* and states if it is positive, zero or negative
+*              and states if it is positive, zero or negative
 *
-* Return 0 Always (Success)
+* Return: 0 Always (Success)
 */
 
 int main(void)
