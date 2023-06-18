@@ -3,9 +3,9 @@
 /**
 * main - Statr of the program
 *
-* description: This program prints all single digit numbers of base 10
+* Description: This program prints all single digit numbers of base 10
 *
-* return: Always 0 (Success)
+* Return: Always 0 (Success)
 */
 
 int main(void)
@@ -15,5 +15,8 @@ for (digit = 0; digit <= 9; digit++)
 {
 putchar('0' + digit);
 }
+
+putchar('\n');
+
 return (0);
 }
