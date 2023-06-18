@@ -19,23 +19,16 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
-int length = strlen(%d, n);
-char lastChar = str[length -1]
-int lastDigit = lastChar -'0';
+	printf("Last digit of %d is %d and is", n, abs(n % 10));
 
- If (lastChar > 5)
-{
-printf("Last digit of %d is lastDigit and is greater than 5\n", n)
-}
-
-else if (lastChar == 0)
-{
-printf("Last digit of %d is lastDigit and is zero\n", n)
-)
+if (abs(n % 10) > 5)
+printf(" greater than 5\n");
+ 
+else if (abs(n % 10) == 0)
+printf(" 0\n");
 
 else
-{
-printf("Last digit of %d is lastDigit and is less than 6 and not 0\n", n)
-}
+printf(" less than 6 and not 0\n");
+
 	return (0);
 }
