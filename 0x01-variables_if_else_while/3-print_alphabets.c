@@ -3,7 +3,8 @@
 /**
 * main - Start of the programme
 *
-* Description: This program prints the alphabeth in small letters using putchar
+* Description: This program prints the alphabeth in lowercase
+* followed by uppercase using putchar
 *
 * Return: Always 0 (Success)
 */
