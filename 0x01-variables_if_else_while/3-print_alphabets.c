@@ -11,21 +11,20 @@
 
 int main(void)
 {
-char letter = 'a';
+char letter, letters;
 
-while (letter <= 'z')
+/* Print lowercase alphabets */
+ for (letter = 'a'; letter <= 'z'; letter++)
+
 {
 putchar(letter);
-letter++;
 }
 
-char letters = 'A';
-
-while (letters <= 'Z')
+/* Print uppercase alphabets */
+ for (letters = 'A'; letters <= 'Z'; letters++)
 
 {
 putchar (letters);
-letters++;
 }
 
 putchar('\n');
