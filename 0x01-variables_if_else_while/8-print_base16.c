@@ -23,7 +23,7 @@ else
 {
 putchar('a' + c - 10);
 }
-putchar(' ');
+
 }
 putchar('\n');
 
