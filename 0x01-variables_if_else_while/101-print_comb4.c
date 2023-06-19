@@ -23,11 +23,12 @@ for (d = 1 + c; d <= 9; d++)
 putchar('0' + b);
 putchar('0' + c);
 putchar('0' + d);
-}
+
 if (b != 7 && c != 8 && d != 9)
 {
 putchar(',');
 putchar(' ');
+}
 }
 }
 }
