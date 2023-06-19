@@ -13,8 +13,8 @@ int main(void)
 int c = 0;
 for (c = 0; c <= 8; c++)
 {
-int d = 1;
-for (d = 1; d <= 9; d++)
+int d = c + 1;
+for (d = c + 1; d <= 9; d++)
 {
 putchar('0' + c);
 putchar('1' + d);
