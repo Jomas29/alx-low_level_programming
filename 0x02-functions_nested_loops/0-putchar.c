@@ -1,4 +1,3 @@
-#include "main.h"
 
 /**
 * main - Start of the program
