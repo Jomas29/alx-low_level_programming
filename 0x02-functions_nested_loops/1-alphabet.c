@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+/**
+* main - Start of the program
+*
+* Description: This program prints the alphabet
+*
+* Return: 0 (Success)
+*/
+
+int main(void)
+{
+print_alphabet(void);
+return (0);
+}
+
+void print_alphabet(void)
+{
+char alphabet = 'a';
+while (alphabet <= 'z')
+{
+putchar(alphabet);
+alphabet++;
+}
+putchar('\n');
+}
