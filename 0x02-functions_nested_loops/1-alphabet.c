@@ -1,26 +1,27 @@
-#include <stdio.h>
+#include "main.h"
 
-/**
-* main - Start of the program
-*
-* Description: This program prints the alphabet
-*
-* Return: 0 (Success)
-*/
+int _putchar(char c);
 
 int main(void)
 {
-print_alphabet(void);
-return (0);
+print_alphabet();
+return 0;
 }
 
+/**
+* print_alphabet - Prints the alphabet in lowercase followed by a new line.
+*/
 void print_alphabet(void)
 {
-char alphabet = 'a';
-while (alphabet <= 'z')
+for (char letter = 'a'; letter <= 'z'; letter++)
 {
-putchar(alphabet);
-alphabet++;
+_putchar(letter);
 }
-putchar('\n');
+
+_putchar('\n');
+}
+
+int _putchar(char c)
+{
+return putchar(c);
 }
