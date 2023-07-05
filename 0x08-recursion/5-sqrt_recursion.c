@@ -2,6 +2,7 @@
 
 /**
 * _sqrt_recursion - Computes the natural square root of a number.
+* _sqrt_recursion_helper - calls the helper function
 * @n: The number to compute the square root of.
 *
 * Return: The natural square root of 'n', or -1 if 'n' does not have a
@@ -10,7 +11,7 @@
 int _sqrt_recursion_helper(int n, int guess)
 {
 if (guess * guess == n)
-return guess;
+return (guess);
 if (guess * guess > n)
 return (-1);
 return (_sqrt_recursion_helper(n, guess + 1));
