@@ -2,7 +2,7 @@
 
 /**
 * _sqrt_recursion - Computes the natural square root of a number.
-* _sqrt_recursion_helper - calls the helper function
+* _sqrt_recursion_helper: calls the helper function
 * @n: The number to compute the square root of.
 *
 * Return: The natural square root of 'n', or -1 if 'n' does not have a
