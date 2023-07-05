@@ -7,18 +7,18 @@
 * Return: The natural square root of 'n', or -1 if 'n' does not have a
 *         natural square root.
 */
+int _sqrt_recursion_helper(int n, int guess)
+{
+if (guess * guess == n)
+return guess;
+if (guess * guess > n)
+return (-1);
+return (_sqrt_recursion_helper(n, guess + 1));
+}
+
 int _sqrt_recursion(int n)
 {
-int i;
 if (n < 0)
-return -1;
-if (n == 0 || n == 1)
-return n;
-
-for (i = 1; i * i < n; i++);
-
-if (i * i == n)
-return i;
-else
-return -1;
+return (-1);
+return (_sqrt_recursion_helper(n, 0));
 }
