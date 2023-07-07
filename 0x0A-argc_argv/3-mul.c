@@ -3,8 +3,8 @@
 
 /**
  * main - Entry point of the program
- * @argc: The number of command-line arguments
- * @argv: An array of command-line argument strings
+ * @argc: The number of command-line
+ * @argv: An array of command-line
  *
  * Return: 0 on success, 1 on error
  */
@@ -17,12 +17,12 @@ if (argc != 3)
 {
 printf("Error\n");
 return (1);
- }
+}
 
 num1 = atoi(argv[1]);
 num2 = atoi(argv[2]);
 
-result = num1 * num2;
+result = num1 *num2;
 
 
 printf("%d\n", result);
