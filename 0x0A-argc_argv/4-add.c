@@ -27,7 +27,7 @@ int num = 0;
 int j;
 
 for (j = 0; argv[i][j] != '\0'; j++)
-        {
+{
 if (argv[i][j] < '0' || argv[i][j] > '9')
 {
 printf("Error\n");
