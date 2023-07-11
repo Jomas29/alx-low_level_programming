@@ -3,6 +3,37 @@
 #include <string.h>
 
 /**
+ * count_words - Counts the number of words in a string
+ * @str: The string to count words from
+ *
+ * Return: Number of words in the string
+ */
+int count_words(char *str)
+{
+	int count = 0;
+	int in_word = 0;
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ')
+		{
+			if (!in_word)
+			{
+				in_word = 1;
+				count++;
+			}
+		}
+		else
+		{
+			in_word = 0;
+		}
+	}
+
+	return (count);
+}
+
+/**
  * strtow - Splits a string into words
  * @str: The string to split
  *
@@ -10,44 +41,76 @@
  */
 char **strtow(char *str)
 {
-	char **words, *word;
-	int i, j, k, count = 0, len = 0;
+	char **words;
+	int word_count, word_index = 0;
+	int word_start = -1;
+	int i, j;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	for (i = 0; str[i]; i++)
-		count += (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'));
+	word_count = count_words(str);
+	if (word_count == 0)
+		return (NULL);
 
-	words = malloc((count + 1) * sizeof(char *));
+	words = malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
 
-	for (i = 0, j = 0; str[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ')
 		{
-			len = 0;
-			while (str[i + len] != ' ' && str[i + len])
-				len++;
-
-			word = malloc((len + 1) * sizeof(char));
-			if (word == NULL)
+			if (word_start == -1)
+				word_start = i;
+		}
+		else
+		{
+			if (word_start != -1)
 			{
-				for (k = 0; k < j; k++)
-					free(words[k]);
-				free(words);
-				return (NULL);
+				int word_length = i - word_start;
+				char *word = malloc((word_length + 1) * sizeof(char));
+
+				if (word == NULL)
+				{
+					for (j = 0; j < word_index; j++)
+						free(words[j]);
+					free(words);
+					return (NULL);
+				}
+
+				for (j = 0; j < word_length; j++)
+					word[j] = str[word_start + j];
+				word[j] = '\0';
+
+				words[word_index++] = word;
+
+				word_start = -1;
 			}
-
-			for (k = 0; k < len; k++)
-				word[k] = str[i++];
-			word[k] = '\0';
-
-			words[j++] = word;
 		}
 	}
 
-	words[j] = NULL;
+	if (word_start != -1)
+	{
+		int word_length = i - word_start;
+		char *word = malloc((word_length + 1) * sizeof(char));
+
+		if (word == NULL)
+		{
+			for (j = 0; j < word_index; j++)
+				free(words[j]);
+			free(words);
+			return (NULL);
+		}
+
+		for (j = 0; j < word_length; j++)
+			word[j] = str[word_start + j];
+		word[j] = '\0';
+
+		words[word_index++] = word;
+	}
+
+	words[word_index] = NULL;
+
 	return (words);
 }
