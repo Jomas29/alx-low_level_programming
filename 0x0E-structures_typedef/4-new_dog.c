@@ -12,8 +12,8 @@
  * Return: Pointer to the newly created dog structure, or NULL on failure
  *
  * Description: This function creates a new dog structure, allocates memory for
- *              the name and owner strings, makes copies of the provided strings,
- *              sets the age, and returns a pointer to the created dog structure.
+ * the name and owner strings, makes copies of the provided strings,
+ * sets the age, and returns a pointer to the created dog structure.
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
