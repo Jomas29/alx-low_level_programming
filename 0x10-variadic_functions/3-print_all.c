@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "variadic_functions.h"
+#include <math.h>
 
 /**
  * print_char - Print a char type argument.
@@ -8,8 +9,8 @@
  */
 void print_char(va_list arg)
 {
-    char ch = va_arg(arg, int);
-    printf("%c", ch);
+char ch = va_arg(arg, int);
+printf("%c", ch);
 }
 
 /**
@@ -18,8 +19,8 @@ void print_char(va_list arg)
  */
 void print_int(va_list arg)
 {
-    int num = va_arg(arg, int);
-    printf("%d", num);
+int num = va_arg(arg, int);
+printf("%d", num);
 }
 
 /**
@@ -28,8 +29,8 @@ void print_int(va_list arg)
  */
 void print_float(va_list arg)
 {
-    double num = va_arg(arg, double);
-    printf("%f", num);
+double num = va_arg(arg, double);
+printf("%f", num);
 }
 
 /**
@@ -38,12 +39,12 @@ void print_float(va_list arg)
  */
 void print_string(va_list arg)
 {
-    char *str = va_arg(arg, char *);
+char *str = va_arg(arg, char *);
 
-    if (str == NULL)
-        str = "(nil)";
+if (str == NULL)
+str = "(nil)";
 
-    printf("%s", str);
+printf("%s", str);
 }
 
 /**
@@ -53,45 +54,44 @@ void print_string(va_list arg)
  */
 void print_all(const char * const format, ...)
 {
-    va_list args;
-    unsigned int i = 0, j = 0;
-    char *sep = "";
+va_list args;
+unsigned int i = 0, j = 0;
+char *sep = "";
 
-    va_start(args, format);
+va_start(args, format);
 
-    while (format && format[i])
-    {
-        j = 0;
-        while (j < 4)
-        {
-            if (format[i] == "cifs"[j])
-            {
-                printf("%s", sep);
-                switch (format[i])
-                {
-                    case 'c':
-                        print_char(args);
-                        break;
-                    case 'i':
-                        print_int(args);
-                        break;
-                    case 'f':
-                        print_float(args);
-                        break;
-                    case 's':
-                        print_string(args);
-                        break;
-                    default:
-                        break;
-                }
-                sep = ", ";
-                break;
-            }
-            j++;
-        }
-        i++;
-    }
-
-    va_end(args);
-    printf("\n");
+while (format && format[i])
+{
+j = 0;
+while (j < 4)
+{
+if (format[i] == "cifs"[j])
+{
+printf("%s", sep);
+switch (format[i])
+{
+case 'c':
+print_char(args);
+break;
+case 'i':
+print_int(args);
+break;
+case 'f':
+print_float(args);
+break;
+case 's':
+print_string(args);
+break;
+default:
+break;
+}
+sep = ", ";
+break;
+}
+j++;
+}
+i++;
+}
+va_end(args);
+printf("\n");
 }
