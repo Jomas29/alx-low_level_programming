@@ -4,9 +4,9 @@
 
 /**
  * print_strings - Prints strings, followed by a new line.
- * @separator: The string to be printed between numbers.
- * @n: The number of integers passed to the function.
- * @...: The variable number of integers to be printed.
+ * @separator: The string to be printed between the strings.
+ * @n: The number of strings passed to the function.
+ * @...: The variable number of strings to be printed.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
@@ -21,8 +21,7 @@ for (i = 0; i < n; i++)
 str = va_arg(args, char *);
 
 if (str != NULL)
-printf("%s", va_arg(args, char *));
-
+printf("%s", str);
 else
 printf("(nil)");
 
