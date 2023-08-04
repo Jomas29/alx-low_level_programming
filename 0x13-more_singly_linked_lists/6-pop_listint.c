@@ -8,14 +8,13 @@
  * Return: The head node's data
  */
 int pop_listint(listint_t **head)
+
+	listint_t *freed = *head;
+	int header = freed->n;
 {
 	if (head == NULL || *head == NULL)
 		return (0);
 
-	listint_t *freed = *head;
-	int header;
-
-	header = freed->n;
 	*head = (*head)->next;
 	free(freed);
 
