@@ -10,6 +10,8 @@
  */
 void display_elf_header(const char *filename)
 {
+	Elf64_Ehdr elf_header;
+
 	int fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
@@ -17,7 +19,6 @@ void display_elf_header(const char *filename)
 		exit(98);
 	}
 
-	Elf64_Ehdr elf_header;
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 	{
 		dprintf(2, "Error: Unable to read ELF header from file %s\n", filename);
